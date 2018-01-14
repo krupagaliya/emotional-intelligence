@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Emotional Intelligence</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">
+  <style>
+    .marg-top-50{
+      margin-top:50px;
+    }
+    .card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+ box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+}
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Negative', {{ neg }}],
+          ['Neutral', {{ nut }}],
+          ['Positive', {{ pos}}],
+        ]);
+
+        // Set chart options
+        var options = {
+                       is3D: true,
+                       'width':650,
+                       'height':450,
+                       colors: ['#e0440e', '#488DC1', '#3AC575']
+                       <!--colors: ['A74B37', 'blue', '‎#e6693e']-->
+                       };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+         $(document).ready(function(){
+          $('svg').addClass("card-1");
+          });
+      }
+    </script>
+  </head>
+
+  <body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Emotional Intelligence</a>
+         <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+         </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="container">
+    <h2>Instant result of your Emotions !!</h2>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="chart_div"></div>
+      </div>
+      <div class="col-lg-4 marg-top-50">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-success col-lg-12">
+            <div class="col-lg-4">Positive</div>
+            <div class="col-lg-8">{{ pos }}</div>
+
+          </li>
+          <li class="list-group-item list-group-item-danger  col-lg-12" >
+            <div class="col-lg-4">Negative </div>
+            <div class="col-lg-8">{{ neg }}</div>
+          </li>
+          <li class="list-group-item list-group-item-info  col-lg-12">
+            <div class="col-lg-4">Nutral   </div>
+            <div class="col-lg-8">{{ nut }}</div>
+          </li>
+        </ul>
+      </div>
+    </div><!--Div that will hold the pie chart-->
+
+  <script>
+
+  </script>
+  </div>
+  </body>
+</html>

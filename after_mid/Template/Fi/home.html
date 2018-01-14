@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Emotional Intelligence</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css"><link rel="stylesheet" href="/static/css/loading_style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Emotional Intelligence</a>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+       </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Info.</h2>
+
+  <div class="well">Give answers in English language. <p>BE TRUE TO YOURSELF..</p></div>
+
+</div>
+ <div class="container">
+    <form action="/instant-result/" method="post">
+         {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="mood_ans">Describe your current mood?</label>
+                    <input class="form-control" type="text" name="mood_ans" />
+                </div>
+                <div class="form-group">
+                    <label for="busy_ans">Do you like to be busy or idle? why?</label>
+                    <input class="form-control" type="text" name="busy_ans" />
+                </div>
+                <div class="form-group">
+                    <label for="sleep_ans">How do you usually feel before you sleep?</label>
+                    <input class="form-control" type="text" name="sleep_ans" />
+                </div>
+
+              </div>
+              <div class="col-lg-6">
+                 <div class="form-group">
+                    <label for="mark_ans">you took a test you got 4 out of 10.what do you think?</label>
+                    <input class="form-control" type="text" name="belive_ans" />
+                </div>
+                <div class="form-group">
+                    <label for="opinion_ans">what's your opinion on school??</label>
+                    <input class="form-control" type="text" name="belive_ans">
+                </div>
+
+                 <div class="form-group">
+                    <label for="mark_ans">you took a test you got 4 out of 10.what do you think?</label>
+                    <input class="form-control" type="text" name="belive_ans">
+                </div>
+
+            </div>
+        </div>
+      <div class="row">
+        <div class="col-lg-offset-4 col-lg-4">
+              <div class="form-group">
+                    <button type="submit" class="btn btn-primary col-lg-12">Analyze</button>
+                </div>
+        </div>
+      </div>
+    </form>
+</div>
+<div style="display:none" class="main-bg">
+        <div class="loader">
+          <div class="inner one"></div>
+          <div class="inner two"></div>
+          <div class="inner three"></div>
+
+          <p class="top-pad-an">Analyzing..</p>
+        </div>
+
+    </div>
+
+<script>
+var wait = true;
+    $(document).ready(function(){
+        $('form').on('submit',function(e){
+            $('.container').hide();
+            $('.main-bg').show();
+            var self = this;
+            if(wait){
+              e.preventDefault();
+              wait = false;
+              setTimeout(function(){
+                 $(self).trigger('submit');
+              },3000);
+            }
+        });
+    });
+</script>
+</body>
+</html>
