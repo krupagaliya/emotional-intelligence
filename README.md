@@ -10,5 +10,7 @@ Its Django based, Which asks users to some sets of questions and based on answer
 2. Django installed
 
 ## Goal
+![Output](https://github.com/krupagaliya/emotional-intelligence/blob/master/static/output.png?raw=true)
+
 ![Output] (https://drive.google.com/file/d/1qCibkqCccAVFRoWm3R61zlVWPjU8Bqbo/view?usp=sharing)
 
