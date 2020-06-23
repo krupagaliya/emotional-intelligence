@@ -12,5 +12,5 @@ Its Django based, Which asks users to some sets of questions and based on answer
 ## Goal
 ![Output](https://github.com/krupagaliya/emotional-intelligence/blob/master/static/output.png?raw=true)
 
-![Output] (https://drive.google.com/file/d/1qCibkqCccAVFRoWm3R61zlVWPjU8Bqbo/view?usp=sharing)
+It gives the percentage of positive, negative and neutral based on answers of users.
 
