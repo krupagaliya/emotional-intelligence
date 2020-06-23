@@ -9,5 +9,6 @@ Its Django based, Which asks users to some sets of questions and based on answer
 1. Python 3.x
 2. Django installed
 
-
+## Goal
+![Output] (https://drive.google.com/file/d/1qCibkqCccAVFRoWm3R61zlVWPjU8Bqbo/view?usp=sharing)
 
